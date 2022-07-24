@@ -1,5 +1,5 @@
 # Py_Game
-Learning about Python Classes I had an ideia of creating a simple game, to train and execute somethings that I've learned in python so far. 
+While learning about Python, I had an ideia of creating a simple game, to train and execute somethings that I've learned in python so far. 
 
 In this project/game, there are 3 people with some info: job, birth month, and favorite food. 
 These info are not shown, only some tips about them.
