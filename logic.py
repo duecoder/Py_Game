@@ -10,7 +10,7 @@ CEND = '\33[0m'
 
 class Pessoa:
     acertadas = 0
-    chances = 27
+    chances = 18
         
     def __init__(self, name, job, fav_food, birth_month):
         self.name = name
@@ -29,12 +29,16 @@ class Pessoa:
                     print()
                     print(CGREEN+"AEE! ACERTOU MIZERAVI!!!!!"+CEND)
                     var_pessoa.acertadas += 1
+                    if var_pessoa.acertadas >= 6:
+                        break
                     print(CBEIGE+f'Você já acertou {var_pessoa.acertadas} desafio(s). Falta(m) '+str((9 - (var_pessoa.acertadas)))+'!'+CEND)
                     break
                 else:
                     print()
                     print(CRED+"UHHH! ERROU! Menos 1 chance!!"+CEND)
                     var_pessoa.chances -= 1
+                    if var_pessoa.chances == 0:
+                        break
                     print(CBEIGE+f'Você ainda tem {var_pessoa.chances} chance(s)!'+CEND)
                     break
             else: 
@@ -53,7 +57,7 @@ rincon = Pessoa('Rincon','Programador','Lasanha','Dezembro')
 
 dicas = {
     'Marcela': ['(Profissão): Capaz de construir um prédio.',
-                '(Mês): As crianças adoram.'
+                '(Mês): As crianças adoram.',
                 '(Comida): Adora se refrescar.', ],
     'Clebin': ['(Profissão): Sem ele, as plantas morreriam.',
                 '(Mês): O ano só começa depois desse mês.',
@@ -88,7 +92,6 @@ def action():
                 print(CBLUE+n+CEND)
                 for items in l:
                     print(f'\t {items}')
-        # DAQUI PRA BAIXO VOU REFAZER TUDO
         elif action == 'b':
             nome_input = input('Qual pessoa você vai arriscar? ')
             if nome_input.title() == 'Marcela':
@@ -100,17 +103,16 @@ def action():
             else:
                 print(CRED+'Você precisa digitar algum nome que tenha no jogo.'+CEND)
         elif action == 'c':
-        #     print(CBEIGE+f'Você ainda tem {var_chances} chances!'+CEND)
-        # elif action == 'd':
-        #     print(CBEIGE+f'Você já acertou {var_acertadas} desafios. Faltam '+str((9 - (var_acertadas)))+'!'+CEND)
-        # elif action == 'e':
             break
+        else:
+            print(CRED+'Você precisa digitar a, b ou c.'+CEND)
         
         if var_pessoa.acertadas >= 6:
             print(CGREEN+"BOA CARAI! Cê venceu o jogo!!!!"+CEND)
             break
         if var_pessoa.chances == 0:
             print(CRED+"PUTA MAN!! Suas chances já eram. :(((("+CEND)
+            break
             
                     
             
